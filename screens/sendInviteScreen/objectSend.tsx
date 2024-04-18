@@ -8,7 +8,7 @@ const ObjectSend = ({data}) => {
     return (
         <TouchableWithoutFeedback onPress={handInfo}>
             <View style={styles.object} >
-                <Image style={styles.img} source={require('D:/Code/cnm/vietchat/assets/images/images.jpg')} />
+                <Image style={styles.img} source={require('E:/vietchat/assets/images/images.jpg')} />
                 <Text style={{ fontSize: 18, flex:1 }}>{data.name}</Text>
                 <TouchableOpacity style={[styles.button, { backgroundColor: "#E0E0E0", marginRight:10 }]}>
                     <Text style={[styles.text]}>Thu hồi</Text>

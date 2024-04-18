@@ -10,15 +10,13 @@ const ResultFindProfile = ({ navigation, route }) => {
     const [firstName, setFirstName] = useState(data.firstName);
     const [lastName, setLastName] = useState(data.lastName); 
     const [birthday, setBirthday] = useState(data.birthday);
-    const [gender, setGender] = useState();
-    const [thumbnailAvatar, setThumbnailAvatar] = useState('');
+    const [gender, setGender] = useState(data.gender);
+    const [thumbnailAvatar, setThumbnailAvatar] = useState(data.thumbnailAvatar);
     const [showMoreInfor, setMoreInfor] = useState(false);
     const [showInformation, setInformation] = useState(false);
     const defaultAvatar = require('../../assets/profileTest/defaultAVT.jpg')
-    const [coverImg, setCoverImg] = useState();
+    const [coverImg, setCoverImg] = useState(data.coverImage);
     const [profileData, setProfileData] = useState(null);
-
-    console.log(data + "here")
     
     const getGenderString = () => {
         return gender ? 'Nam' : 'Nữ';
@@ -26,7 +24,7 @@ const ResultFindProfile = ({ navigation, route }) => {
     return (
         <ScrollView style={styles.container}>
             <Image
-                source={coverPhoto}
+                source={coverImg ? {uri : coverImg} : coverPhoto}
                 style={styles.coverPhoto}
             />
 
@@ -43,19 +41,17 @@ const ResultFindProfile = ({ navigation, route }) => {
 
             <View style={styles.middleContent}>
                 <View style={styles.avatarContainer}>
-                    <TouchableOpacity>
                         <Avatar
                             size={100}
                             rounded={true}
                             source={thumbnailAvatar ? { uri: thumbnailAvatar } : defaultAvatar}
                         />
-                    </TouchableOpacity>
                     <Text style={styles.username}>{firstName} {lastName}</Text>
                 </View>
 
               
                 <View style={styles.ButtonContainer}>
-                    <TouchableOpacity style={styles.postButton} onPress={()=> console.log(data)}>
+                    <TouchableOpacity style={styles.postButton}>
                         <Text style={styles.TextButton}>Nhắn tin</Text> 
                     </TouchableOpacity>
                     <TouchableOpacity>

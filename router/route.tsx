@@ -17,7 +17,8 @@ import ConfirmOTP from "../screens/forgetPasswordScreen/confirmOTP";
 import ResetPassword from "../screens/forgetPasswordScreen/ResetPassword";
 import ResultFindProfile from "../screens/findScreen/ResultFindProfile";
 import DetailProfile from "../screens/profileScreen/DetailProfile";
-
+import ProfileScreen from "../screens/profileScreen/ProfileScreen";
+import ViewProfile from "../screens/profileScreen/ViewProfile";
 const Stack = createNativeStackNavigator();
 
 const Route = () => {
@@ -113,6 +114,16 @@ const Route = () => {
       <Stack.Screen
         name="DetailProfile"
         component={DetailProfile}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="ViewProfile"
+        component={ViewProfile}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

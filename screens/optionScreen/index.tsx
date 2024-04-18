@@ -26,7 +26,7 @@ const OptionScreen = ({ name }) => {
     return (
         <ScrollView style={styles.container}>
             <View style={styles.containerHeader}>
-                <Image style={styles.img} source={require('D:/Code/cnm/vietchat/assets/images/images.jpg')}/>
+                <Image style={styles.img} source={require('E:/vietchat/assets/images/images.jpg')}/>
                 <Text style={{ fontSize: 20 }}>{name + ""}</Text>
                 <View style={styles.containerIcon}>
                     <TouchableOpacity style={{ width: 50, alignItems: "center" }}>

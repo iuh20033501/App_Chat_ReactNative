@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Avatar } from 'react-native-elements';
 import ArrowIcon from '../../assets/icon/ArrowIcon';
 import { useQueryClient } from '@tanstack/react-query';
+import http from '../../utils/http';
 
 const FindScreen = ({ navigation, route }) => {
   const [searchKeyword, setSearchKeyword] = useState('');
@@ -27,7 +28,7 @@ const FindScreen = ({ navigation, route }) => {
 
   const getUserProfile = async (phoneNumber) => {
     try {
-      await axios.get(`http://172.20.10.3:8080/api/v1/users/profile/${phoneNumber}`,{
+      await http.get(`/v1/users/profile/${phoneNumber}`,{
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -36,6 +37,7 @@ const FindScreen = ({ navigation, route }) => {
         const data = res.data;
         console.log('Thông tin người dùng:', data);
         setData(data);
+        setThumbnailAvatar(data.thumbnailAvatar)
       }).catch((error) => {
         console.log(error)
       });
